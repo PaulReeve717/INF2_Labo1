@@ -1,6 +1,4 @@
-//
-// Created by kylia on 02.03.2020.
-//
+
 
 #ifndef INF2_LABO1_TEMPS_H
 #define INF2_LABO1_TEMPS_H
@@ -15,7 +13,7 @@ class Temps {
     friend bool operator<(const Temps& lhs, const Temps& rhs);
     friend bool operator>(const Temps& lhs, const Temps& rhs);
     friend bool operator<=(const Temps& lhs, const Temps& rhs);
-    friend bool operator<=(const Temps& lhs, const Temps& rhs);
+    friend bool operator>=(const Temps& lhs, const Temps& rhs);
     friend bool operator==(const Temps& lhs, const Temps& rhs);
     friend bool operator!=(const Temps& lhs, const Temps& rhs);
 
@@ -24,13 +22,13 @@ class Temps {
     friend Temps operator-(Temps lhs, const Temps& rhs);
 
     //operateur de flux
-    friend ostream& operator<<(ostream& lhs, const Temps& rhs);
+    friend std::ostream& operator<<(std::ostream& lhs, const Temps& rhs);
 
 public:
     //constructor
     Temps();
     Temps( time_t temps );
-    Temps( uint heure, uint minute, uint seconde = 0 )
+    Temps( uint heure, uint minute, uint seconde = 0 );
 
     //getters
     uint getHeure()   const ;
@@ -59,7 +57,7 @@ private:
     //champs
     uint heure;
     uint minute;
-    uint seconde
+    uint seconde;
 };
 
 
