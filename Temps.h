@@ -1,5 +1,3 @@
-
-
 #ifndef INF2_LABO1_TEMPS_H
 #define INF2_LABO1_TEMPS_H
 
@@ -21,7 +19,7 @@ class Temps {
     friend Temps operator+(Temps lhs, const Temps& rhs);
     friend Temps operator-(Temps lhs, const Temps& rhs);
 
-    //operateurs de flux
+    // Operateurs de flux
     friend std::ostream& operator<<(std::ostream& lhs, const Temps& rhs);
 
 public:
@@ -38,7 +36,7 @@ public:
     // Setters
     void setHeure( uint heure );
     void setMinute( uint minute );
-    void setSeconde(uint seconde );
+    void setSeconde( uint seconde );
 
     // Operateurs d'incrementation et de decrementation
     Temps& operator++();
@@ -50,7 +48,8 @@ public:
     Temps&operator+=(const Temps& rhs);
     Temps&operator-=(const Temps& rhs);
 
-    // TODO: Operateur de conversion
+    // Operateur de conversion de type
+    operator double() const;
 
 private:
     // Champs
@@ -60,4 +59,4 @@ private:
 };
 
 
-#endif //INF2_LABO1_TEMPS_H
+#endif // INF2_LABO1_TEMPS_H

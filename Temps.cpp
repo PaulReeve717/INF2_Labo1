@@ -1,10 +1,8 @@
-
-
 #include "Temps.h"
 
 /*------------------------------------------------------------------------------------------*/
 
-//operateur de comparaison
+// Operateur de comparaison
 
 bool operator<(const Temps& lhs, const Temps& rhs) {
     return false;
@@ -32,7 +30,7 @@ bool operator!=(const Temps& lhs, const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-//operateur arithmetique
+// Operateur arithmetique
 
 Temps operator+(Temps lhs, const Temps& rhs) {
     return Temps();
@@ -44,7 +42,7 @@ Temps operator-(Temps lhs, const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-//operateur de flux
+// Operateur de flux
 
 std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
     return lhs;
@@ -52,7 +50,7 @@ std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-//constructor
+// Constructor
 
 Temps::Temps() {
 
@@ -68,7 +66,7 @@ Temps::Temps(uint heure, uint minute, uint seconde) {
 
 /*------------------------------------------------------------------------------------------*/
 
-//getters
+// Getters
 
 uint Temps::getHeure() const {
     return 0;
@@ -84,7 +82,7 @@ uint Temps::getSeconde() const {
 
 /*------------------------------------------------------------------------------------------*/
 
-//setters
+// Setters
 
 void Temps::setHeure(uint heure) {
 
@@ -100,7 +98,7 @@ void Temps::setSeconde(uint seconde) {
 
 /*------------------------------------------------------------------------------------------*/
 
-//operateur incrementation et decrementation
+// Operateur incrementation et decrementation
 
 Temps& Temps::operator++() {
     return *this;
@@ -120,7 +118,7 @@ Temps Temps::operator--(int) {
 
 /*------------------------------------------------------------------------------------------*/
 
-//operateur d'affectation
+// Operateur d'affectation
 
 Temps& Temps::operator+=(const Temps& rhs) {
     return *this;
@@ -130,7 +128,12 @@ Temps& Temps::operator-=(const Temps& rhs) {
     return *this;
 }
 
+/*------------------------------------------------------------------------------------------*/
 
+// Operateur de conversion de type
+Temps::operator double() const {
+    return 0.0;
+}
 
 
 
