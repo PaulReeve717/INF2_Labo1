@@ -94,7 +94,7 @@ void Temps::setMinute(uint minute) {
 
 }
 
-void Temps::setseconde(uint seconde) {
+void Temps::setSeconde(uint seconde) {
 
 }
 
