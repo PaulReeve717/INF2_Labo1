@@ -1,4 +1,6 @@
 #include "Temps.h"
+#include <iomanip>
+using namespace std;
 
 /*------------------------------------------------------------------------------------------*/
 
@@ -50,7 +52,10 @@ Temps operator-(Temps lhs, const Temps& rhs) {
 // Operateur de flux
 
 std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
-    return lhs;
+    return lhs << setfill('0')
+               << setw(2) << rhs.heure << ":"
+               << setw(2) << rhs.minute << ":"
+               << setw(2) << rhs.seconde;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -58,16 +63,20 @@ std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
 // Constructor
 
 Temps::Temps() {
-
+    heure = minute = seconde = 0;
 }
 
 Temps::Temps(time_t temps) {
-
+    char h[2], m[2], s[2];
+    strftime(h, sizeof(h), "%H", localtime(&temps));
+    strftime(m, sizeof(m), "%M", localtime(&temps));
+    strftime(s, sizeof(s), "%S", localtime(&temps));
+    heure = uint(atoi(h));
+    minute = uint(atoi(m));
+    seconde = uint(atoi(s));
 }
 
-Temps::Temps(uint heure, uint minute, uint seconde) {
-
-}
+Temps::Temps(uint heure, uint minute, uint seconde) : heure(heure), minute(minute), seconde(seconde) {}
 
 /*------------------------------------------------------------------------------------------*/
 

@@ -3,7 +3,7 @@
 #include "Temps.h"
 
 int main() {
-
-    std::cout << "Hello World !" << std::endl;
+    Temps t(5, 1, 22);
+    std::cout << t;
     return EXIT_SUCCESS;
 }
