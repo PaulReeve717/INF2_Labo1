@@ -74,15 +74,15 @@ Temps::Temps(uint heure, uint minute, uint seconde) {
 // Getters
 
 uint Temps::getHeure() const {
-    return 0;
+    return heure;
 }
 
 uint Temps::getMinute() const {
-    return 0;
+    return minute;
 }
 
 uint Temps::getSeconde() const {
-    return 0;
+    return seconde;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -90,15 +90,15 @@ uint Temps::getSeconde() const {
 // Setters
 
 void Temps::setHeure(uint heure) {
-
+    this->heure = heure;
 }
 
 void Temps::setMinute(uint minute) {
-
+    this->minute = minute;
 }
 
 void Temps::setSeconde(uint seconde) {
-
+    this->seconde = seconde;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -130,7 +130,7 @@ Temps& Temps::operator+=(const Temps& rhs) {
 }
 
 Temps& Temps::operator-=(const Temps& rhs) {
-    *this += rhs
+    *this += rhs;
     return *this;
 }
 
