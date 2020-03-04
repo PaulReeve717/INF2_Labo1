@@ -38,11 +38,13 @@ bool operator!=(const Temps& lhs, const Temps& rhs) {
 // Operateur arithmetique
 
 Temps operator+(Temps lhs, const Temps& rhs) {
-    return Temps();
+    lhs += rhs;
+    return lhs;
 }
 
 Temps operator-(Temps lhs, const Temps& rhs) {
-    return Temps();
+    lhs -= rhs;
+    return lhs;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -126,11 +128,23 @@ Temps Temps::operator--(int) {
 // Operateur d'affectation
 
 Temps& Temps::operator+=(const Temps& rhs) {
+    heure   += rhs.heure;
+    minute  += rhs.minute;
+    seconde += rhs.seconde;
+
+    heure   += minute  / MAX_MINUTE_DANS_HEURE;
+    minute  += seconde / MAX_SECONDE_DANS_MINUTE;
+
+    heure   %= MAX_HEURE_DANS_JOUR;
+    minute  %= MAX_MINUTE_DANS_HEURE;
+    seconde %= MAX_SECONDE_DANS_MINUTE;
+
     return *this;
 }
 
 Temps& Temps::operator-=(const Temps& rhs) {
-    *this += rhs
+    heure -= rhs.heure;
+    minute -= rhs.minute;
     return *this;
 }
 
