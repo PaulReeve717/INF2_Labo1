@@ -2,6 +2,11 @@
 
 /*------------------------------------------------------------------------------------------*/
 
+//initialisation static const
+const uint Temps::MAX_HEURE_DANS_JOUR     = 24;
+const uint Temps::MAX_MINUTE_DANS_HEURE   = 60;
+const uint Temps::MAX_SECONDE_DANS_MINUTE = 60;
+
 // Operateur de comparaison
 
 bool operator<(const Temps& lhs, const Temps& rhs) {
