@@ -125,6 +125,7 @@ Temps& Temps::operator+=(const Temps& rhs) {
 }
 
 Temps& Temps::operator-=(const Temps& rhs) {
+    *this += rhs
     return *this;
 }
 

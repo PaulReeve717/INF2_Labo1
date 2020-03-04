@@ -53,9 +53,14 @@ public:
 
 private:
     // Champs
-    uint heure;
-    uint minute;
-    uint seconde;
+    uint heure,
+         minute,
+         seconde;
+
+    //champs statiques
+    static const uint MAX_HEURE_DANS_JOUR,
+                      MAX_MINUTE_DANS_HEURE,
+                      MAX_SECONDE_DANS_MINUTE;
 };
 
 
