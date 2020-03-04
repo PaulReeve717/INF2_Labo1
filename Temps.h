@@ -49,7 +49,7 @@ public:
     Temps&operator-=(const Temps& rhs);
 
     // Operateur de conversion de type
-    operator double() const;
+    explicit operator double() const;
 
 private:
     // Champs
