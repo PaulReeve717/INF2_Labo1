@@ -73,8 +73,8 @@ Temps::Temps(time_t temps) {
     strftime(h, sizeof(h), "%H", localtime(&temps));
     strftime(m, sizeof(m), "%M", localtime(&temps));
     strftime(s, sizeof(s), "%S", localtime(&temps));
-    heure = uint(atoi(h));
-    minute = uint(atoi(m));
+    heure   = uint(atoi(h));
+    minute  = uint(atoi(m));
     seconde = uint(atoi(s));
 }
 
@@ -85,15 +85,15 @@ Temps::Temps(uint heure, uint minute, uint seconde) : heure(heure), minute(minut
 // Getters
 
 uint Temps::getHeure() const {
-    return 0;
+    return heure;
 }
 
 uint Temps::getMinute() const {
-    return 0;
+    return minute;
 }
 
 uint Temps::getSeconde() const {
-    return 0;
+    return seconde;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -101,15 +101,15 @@ uint Temps::getSeconde() const {
 // Setters
 
 void Temps::setHeure(uint heure) {
-
+    this->heure = heure;
 }
 
 void Temps::setMinute(uint minute) {
-
+    this->minute = minute;
 }
 
 void Temps::setSeconde(uint seconde) {
-
+    this->seconde = seconde;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -152,8 +152,23 @@ Temps& Temps::operator+=(const Temps& rhs) {
 }
 
 Temps& Temps::operator-=(const Temps& rhs) {
-    heure -= rhs.heure;
-    minute -= rhs.minute;
+    heure   += MAX_HEURE_DANS_JOUR;
+    minute  += MAX_MINUTE_DANS_HEURE;
+    seconde += MAX_SECONDE_DANS_MINUTE;
+
+    heure   -= rhs.heure;
+    minute  -= rhs.minute;
+    seconde -= rhs.seconde;
+
+    minute  -= MAX_SECONDE_DANS_MINUTE / seconde;
+    heure   -= MAX_MINUTE_DANS_HEURE   / minute ;  ;
+
+    heure   %= MAX_HEURE_DANS_JOUR;
+    minute  %= MAX_MINUTE_DANS_HEURE;
+    seconde %= MAX_SECONDE_DANS_MINUTE;
+
+
+
     return *this;
 }
 
