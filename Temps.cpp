@@ -66,7 +66,7 @@ std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Constructor
+// Constructeur
 
 Temps::Temps() {
     heure = minute = seconde = 0;
@@ -86,7 +86,7 @@ Temps::Temps(uint heure, uint minute, uint seconde) : heure(heure), minute(minut
 
 /*------------------------------------------------------------------------------------------*/
 
-// Getters
+// Sélecteurs
 
 uint Temps::getHeure() const {
     return heure;
@@ -102,7 +102,7 @@ uint Temps::getSeconde() const {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Setters
+// Modificateurs
 
 void Temps::setHeure(uint heure) {
     this->heure = heure;
@@ -118,22 +118,27 @@ void Temps::setSeconde(uint seconde) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Operateur incrementation et decrementation
+// Opérateur incrementation et décrementation
 
 Temps& Temps::operator++() {
+    *this += Temps(0,0,1);
     return *this;
 }
 
 Temps Temps::operator++(int) {
-    return Temps();
+    Temps temp =  *this;
+    *this   += Temps(0,0,1);
+    return temp;
 }
-
 Temps& Temps::operator--() {
+    *this -= Temps(0,0,1);
     return *this;
 }
 
 Temps Temps::operator--(int) {
-    return Temps();
+    Temps temp =  *this;
+    *this   -= Temps(0,0,1);
+    return temp;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -180,11 +185,8 @@ Temps& Temps::operator-=(const Temps& rhs) {
 
 // Operateur de conversion de type
 Temps::operator double() const {
-    return 0.0;
+
 }
-
-
-
 
 
 
