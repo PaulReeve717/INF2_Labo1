@@ -152,6 +152,8 @@ Temps& Temps::operator+=(const Temps& rhs) {
     minute  %= MAX_MINUTE_DANS_HEURE;
     seconde %= MAX_SECONDE_DANS_MINUTE;
 
+
+
     return *this;
 }
 
@@ -170,8 +172,6 @@ Temps& Temps::operator-=(const Temps& rhs) {
     heure   %= MAX_HEURE_DANS_JOUR;
     minute  %= MAX_MINUTE_DANS_HEURE;
     seconde %= MAX_SECONDE_DANS_MINUTE;
-
-
 
     return *this;
 }
