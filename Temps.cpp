@@ -180,7 +180,9 @@ Temps& Temps::operator-=(const Temps& rhs) {
 
 // Operateur de conversion de type
 Temps::operator double() const {
-    return 0.0;
+    return double(heure)
+           + (double(minute) / MAX_MINUTE_DANS_HEURE)
+           + (double(seconde) / (MAX_SECONDE_DANS_MINUTE * MAX_SECONDE_DANS_MINUTE));
 }
 
 
