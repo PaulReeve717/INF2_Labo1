@@ -12,27 +12,31 @@ const uint Temps::MAX_SECONDE_DANS_MINUTE = 60;
 // Operateur de comparaison
 
 bool operator<(const Temps& lhs, const Temps& rhs) {
-    return false;
+    return  lhs.heure   < rhs.heure     ||
+            lhs.minute  < rhs.minute    ||
+            lhs.seconde < rhs.seconde;
 }
 
 bool operator>(const Temps& lhs, const Temps& rhs) {
-    return false;
+    return (rhs < lhs);
 }
 
 bool operator<=(const Temps& lhs, const Temps& rhs) {
-    return false;
+    return !(rhs < lhs);
 }
 
 bool operator>=(const Temps& lhs, const Temps& rhs) {
-    return false;
+    return !(lhs < rhs);
 }
 
 bool operator==(const Temps& lhs, const Temps& rhs) {
-    return false;
+    return  lhs.heure   == rhs.heure    &&
+            lhs.minute  == rhs.minute   &&
+            lhs.seconde == rhs.seconde;
 }
 
 bool operator!=(const Temps& lhs, const Temps& rhs) {
-    return false;
+    return !(lhs == rhs);
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -55,8 +59,8 @@ Temps operator-(Temps lhs, const Temps& rhs) {
 
 std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
     return lhs << setfill('0')
-               << setw(2) << rhs.heure << ":"
-               << setw(2) << rhs.minute << ":"
+               << setw(2) << rhs.heure      << ":"
+               << setw(2) << rhs.minute     << ":"
                << setw(2) << rhs.seconde;
 }
 
