@@ -9,7 +9,7 @@ const uint Temps::MAX_HEURE_DANS_JOUR     = 24;
 const uint Temps::MAX_MINUTE_DANS_HEURE   = 60;
 const uint Temps::MAX_SECONDE_DANS_MINUTE = 60;
 
-// Operateur de comparaison
+// Opérateurs de comparaison
 
 bool operator<(const Temps& lhs, const Temps& rhs) {
     return  lhs.heure   < rhs.heure     ||
@@ -41,7 +41,7 @@ bool operator!=(const Temps& lhs, const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Operateur arithmetique
+// Opérateurs arithmètique
 
 Temps operator+(Temps lhs, const Temps& rhs) {
     lhs += rhs;
@@ -55,7 +55,7 @@ Temps operator-(Temps lhs, const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Operateur de flux
+// Opérateur de flux
 
 std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
     return lhs << setfill('0')
@@ -66,7 +66,7 @@ std::ostream &operator<<(std::ostream& lhs, const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Constructeur
+// Constructeurs
 
 Temps::Temps() {
     heure = minute = seconde = 0;
@@ -118,7 +118,7 @@ void Temps::setSeconde(uint seconde) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Opérateur incrementation et décrementation
+// Opérateurs d'incrementation et décrementation
 
 Temps& Temps::operator++() {
     *this += Temps(0,0,1);
@@ -144,7 +144,7 @@ Temps Temps::operator--(int) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Operateur d'affectation
+// Opérateurs d'affectation
 
 Temps& Temps::operator+=(const Temps& rhs) {
     heure   += rhs.heure;
@@ -184,7 +184,7 @@ Temps& Temps::operator-=(const Temps& rhs) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Operateur de conversion de type
+// Opérateur de conversion de type
 Temps::operator double() const {
     return double(heure)
            + (double(minute) / MAX_MINUTE_DANS_HEURE)
