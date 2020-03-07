@@ -38,7 +38,9 @@ int main() {
     t2.setMinute(30);
     t2.setHeure(12);
 
-    cout << "Heure modifiee : " << t2 << endl;
+    cout << "modification seconde : " << t2.getSeconde() << endl;
+    cout << "modification minute  : " << t2.getMinute()  << endl;
+    cout << "modification heure   : " << t2.getHeure()   << endl;
 
     cout << endl;
 
