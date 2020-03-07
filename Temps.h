@@ -7,7 +7,7 @@
 using uint = unsigned  int;
 
 class Temps {
-    // Operateurs de comparaison
+    // Opérateurs de comparaison
     friend bool operator<(const Temps& lhs, const Temps& rhs);
     friend bool operator>(const Temps& lhs, const Temps& rhs);
     friend bool operator<=(const Temps& lhs, const Temps& rhs);
@@ -15,11 +15,11 @@ class Temps {
     friend bool operator==(const Temps& lhs, const Temps& rhs);
     friend bool operator!=(const Temps& lhs, const Temps& rhs);
 
-    // Operateurs arithmetiques
+    // Opérateurs arithmètiques
     friend Temps operator+(Temps lhs, const Temps& rhs);
     friend Temps operator-(Temps lhs, const Temps& rhs);
 
-    // Operateurs de flux
+    // Opérateur de flux
     friend std::ostream& operator<<(std::ostream& lhs, const Temps& rhs);
 
 public:
@@ -28,27 +28,27 @@ public:
     Temps( time_t temps );
     Temps( uint heure, uint minute, uint seconde = 0 );
 
-    // Getters
+    // Sélecteurs
     uint getHeure()   const ;
     uint getMinute()  const ;
     uint getSeconde() const ;
 
-    // Setters
+    // Modificateurs
     void setHeure( uint heure );
     void setMinute( uint minute );
     void setSeconde( uint seconde );
 
-    // Operateurs d'incrementation et de decrementation
+    // Opérateurs d'incrementation et de decrementation
     Temps& operator++();
     Temps  operator++(int);
     Temps& operator--();
     Temps  operator--(int);
 
-    // Operateurs d'affectation
+    // Opérateurs d'affectation
     Temps&operator+=(const Temps& rhs);
     Temps&operator-=(const Temps& rhs);
 
-    // Operateur de conversion de type
+    // Opérateur de conversion de type
     explicit operator double() const;
 
 private:

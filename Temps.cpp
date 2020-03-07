@@ -1,5 +1,5 @@
 #include "Temps.h"
-#include <iomanip>
+#include <iomanip> //setw
 using namespace std;
 
 /*------------------------------------------------------------------------------------------*/
@@ -151,8 +151,8 @@ Temps& Temps::operator+=(const Temps& rhs) {
     minute  += rhs.minute;
     seconde += rhs.seconde;
 
-    heure   += minute  / MAX_MINUTE_DANS_HEURE;
     minute  += seconde / MAX_SECONDE_DANS_MINUTE;
+    heure   += minute  / MAX_MINUTE_DANS_HEURE;
 
     heure   %= MAX_HEURE_DANS_JOUR;
     minute  %= MAX_MINUTE_DANS_HEURE;
@@ -170,8 +170,11 @@ Temps& Temps::operator-=(const Temps& rhs) {
     minute  -= rhs.minute;
     seconde -= rhs.seconde;
 
-    minute  -= MAX_SECONDE_DANS_MINUTE / seconde;
-    heure   -= MAX_MINUTE_DANS_HEURE   / minute ;  ;
+    if( !(seconde / MAX_SECONDE_DANS_MINUTE) )
+        minute -= 1;
+
+    if( !(minute / MAX_MINUTE_DANS_HEURE) )
+        heure -= 1;
 
     heure   %= MAX_HEURE_DANS_JOUR;
     minute  %= MAX_MINUTE_DANS_HEURE;
