@@ -1,10 +1,33 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : Laboratoire no. 1 - classe Temps
+ Fichier     : Temps.cpp
+ Auteur(s)   : Paul Reeve, Kylian Bourcoud, Marco Maziero
+ Date        : 06.03.2020
+
+ But         : Implémentation complète de la classe Temps. Contient l'implémentation de toutes
+               fonctions de surcharge d'opérateurs demandées, ainsi que les constructeurs et les accesseurs.
+
+ Remarque(s) : Information complémentaire :
+                    - Le constructeur prenant comme paramètre une variable de type "time_t" utilise
+                      une fonction nomée "atoi()" qui permet de transformer le buffer de "char"
+                      en nombre entier. Ce nombre entier est ensuite transformé en "unsigned int".
+                      (Source : http://www.cplusplus.com/reference/cstdlib/atoi/)
+
+                    - "setw" de la librairie "iomanip" est utilisée pour afficher correctement
+                       le bon nombre de caractères lors de l'affichage d'un temps.
+
+ Compilateur : MinGW 6.3.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include "Temps.h"
-#include <iomanip> //setw
+#include <iomanip>
 using namespace std;
 
 /*------------------------------------------------------------------------------------------*/
 
-//initialisation static const
+// Initialisation static const
 const uint Temps::MAX_HEURE_DANS_JOUR     = 24;
 const uint Temps::MAX_MINUTE_DANS_HEURE   = 60;
 const uint Temps::MAX_SECONDE_DANS_MINUTE = 60;
@@ -73,7 +96,7 @@ Temps::Temps() {
 }
 
 Temps::Temps(time_t temps) {
-    char h[2], m[2], s[2];
+    char h[4], m[4], s[4];
     strftime(h, sizeof(h), "%H", localtime(&temps));
     strftime(m, sizeof(m), "%M", localtime(&temps));
     strftime(s, sizeof(s), "%S", localtime(&temps));
@@ -86,7 +109,7 @@ Temps::Temps(uint heure, uint minute, uint seconde) : heure(heure), minute(minut
 
 /*------------------------------------------------------------------------------------------*/
 
-// Sélecteurs
+// Sélécteurs
 
 uint Temps::getHeure() const {
     return heure;
@@ -118,7 +141,7 @@ void Temps::setSeconde(uint seconde) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Opérateurs d'incrementation et décrementation
+// Opérateurs d'incrementation et décrémentation
 
 Temps& Temps::operator++() {
     *this += Temps(0,0,1);

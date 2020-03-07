@@ -1,3 +1,26 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : Laboratoire no. 1 - classe Temps
+ Fichier     : Temps.h
+ Auteur(s)   : Paul Reeve, Kylian Bourcoud, Marco Maziero
+ Date        : 06.03.2020
+
+ But         : Définition de la classe Temps ainsi que de ses variables membre privées
+               et de ses fonction membres et amies (constructeurs, fonctions de
+               surcharge d'opérateurs, accesseurs)
+
+ Remarque(s) : Informations complémentaires :
+                    - L'alias "uint" a été crée pour remplacer la notation "unsigned int" afin d'économiser
+                      de la place et gagner en visibilité.
+
+                    - Des variables statiques constantes ont élé crées pour exprimer le nombre d'heures
+                      dans une jour, le nombre de minutes dans une heur et le nombre de secondes dans
+                      une minute. Ceci dans le but de faciliter un éventuel changement de données.
+
+ Compilateur : MinGW 6.3.0
+ -----------------------------------------------------------------------------------
+*/
+
 #ifndef INF2_LABO1_TEMPS_H
 #define INF2_LABO1_TEMPS_H
 
@@ -15,7 +38,7 @@ class Temps {
     friend bool operator==(const Temps& lhs, const Temps& rhs);
     friend bool operator!=(const Temps& lhs, const Temps& rhs);
 
-    // Opérateurs arithmètiques
+    // Opérateurs arithmétiques
     friend Temps operator+(Temps lhs, const Temps& rhs);
     friend Temps operator-(Temps lhs, const Temps& rhs);
 
@@ -28,7 +51,7 @@ public:
     Temps( time_t temps );
     Temps( uint heure, uint minute, uint seconde = 0 );
 
-    // Sélecteurs
+    // Sélécteurs
     uint getHeure()   const ;
     uint getMinute()  const ;
     uint getSeconde() const ;
@@ -38,7 +61,7 @@ public:
     void setMinute( uint minute );
     void setSeconde( uint seconde );
 
-    // Opérateurs d'incrementation et de decrementation
+    // Opérateurs d'incrémentation et de décrémentation
     Temps& operator++();
     Temps  operator++(int);
     Temps& operator--();
