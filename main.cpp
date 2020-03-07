@@ -9,13 +9,16 @@
                et accesseurs de la classe Temps.
 
  Remarque(s) : Informations complémentaires :
-                    - Les 5 variables de type Temps utilisées pour les tests sont :
+                    - Les 8 variables de type Temps utilisées pour les tests sont :
                             - t1 qui vaut : "00:00:00"
                             - t2 qui vaut : "10:11:12"
                             - t3 qui vaut : "05:05:05"
                             - t4 qui vaut : "13:31:31"
                             - t5 qui vaut : "01:30:00"
                             - t6 qui vaut : l'heure actuelle du système
+                            - tPetit qui vaut : "10:10:10"
+                            - tPetit2 qui vaut : "10:10:10"
+                            - tGrand qui vaut : "11:11:11"
 
                     - La librairie "iomanip" est utilisée pour l'affichage des temps
                       convertis en type double.
@@ -41,7 +44,10 @@ int main() {
           t3(5,5, 5),
           t4(13,31,31),
           t5 = {1, 30},
-          t6 = heureActuelle;
+          t6 = heureActuelle,
+          tPetit(10,10,10),
+          tPetit2(10,10,10),
+          tGrand(11, 11, 11);
 
     cout << endl;
 
@@ -74,8 +80,25 @@ int main() {
 
     cout << "Tests operateurs de comparaison" << endl;
     cout << "===============================" << endl;
+    cout << boolalpha;
 
+    cout << "tPetit < tGrand  : " << (tPetit < tGrand) << endl;
+    cout << "tPetit > tGrand  : " << (tPetit > tGrand) << endl;
+    cout << "tPetit <= tGrand : " << (tPetit <= tGrand) << endl;
+    cout << "tPetit >= tGrand : " << (tPetit >= tGrand) << endl;
+    cout << "tPetit == tGrand : " << (tPetit == tGrand) << endl;
+    cout << "tPetit == tPetit2 : " << (tPetit == tPetit2) << endl;
+    cout << "tPetit != tGrand : " << (tPetit != tGrand) << endl;
 
+    tPetit.setHeure(tPetit.getHeure() + 1);
+    cout << "(Meme heure) tPetit < tGrand  : " << (tPetit < tGrand) << endl;
+    cout << "(Meme heure) tPetit == tGrand : " << (tPetit == tGrand) << endl;
+    tPetit.setMinute(tPetit.getMinute() + 1);
+
+    cout << "(Meme heure & minute) tPetit < tGrand  : " << (tPetit < tGrand) << endl;
+    cout << "(Meme heure & minute) tPetit == tGrand : " << (tPetit == tGrand) << endl;
+
+    cout << noboolalpha;
     cout << endl;
 
     // -------------------------------------------------------------------
