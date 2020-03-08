@@ -16,9 +16,9 @@
                             - t4 qui vaut : "13:31:31"
                             - t5 qui vaut : "01:30:00"
                             - t6 qui vaut : l'heure actuelle du système
-                            - tPetit qui vaut : "10:10:10"
+                            - tPetit qui vaut  : "10:10:10"
                             - tPetit2 qui vaut : "10:10:10"
-                            - tGrand qui vaut : "11:11:11"
+                            - tGrand qui vaut  : "11:11:11"
 
                     - La librairie "iomanip" est utilisée pour l'affichage des temps
                       convertis en type double.
@@ -46,8 +46,19 @@ int main() {
           t5 = {1, 30},
           t6 = heureActuelle,
           tPetit(10,10,10),
-          tPetit2(10,10,10),
           tGrand(11, 11, 11);
+
+    Temps tPetit2 = tPetit;
+
+    cout << "Creation du temps t1 : " << t1 << endl
+         << "Creation du temps t2 : " << t2 << endl
+         << "Creation du temps t3 : " << t3 << endl
+         << "Creation du temps t4 : " << t4 << endl
+         << "Creation du temps t5 : " << t5 << endl
+         << "Creation du temps t6 : " << t6 << endl
+         << "Creation du temps tPetit  : " << tPetit << endl
+         << "Creation du temps tPetit2 : " << tPetit2 << endl
+         << "Creation du temps tGrand  : " << tGrand << endl;
 
     cout << endl;
 
@@ -153,7 +164,10 @@ int main() {
          << "Variable t3 : " << t3 << endl
          << "Variable t4 : " << t4 << endl
          << "Variable t5 : " << t5 << endl
-         << "Variable t6 : " << t6 << endl;
+         << "Variable t6 : " << t6 << endl
+         << "Variable tPetit  : " << tPetit << endl
+         << "Variable tPetit2 : " << tPetit2 << endl
+         << "Variable tGrand  : " << tGrand << endl;
 
     cout << endl;
 
@@ -168,7 +182,10 @@ int main() {
          << "Variable t3 : " << (double)t3 << endl
          << "Variable t4 : " << (double)t4 << endl
          << "Variable t5 : " << (double)t5 << endl
-         << "Variable t6 : " << (double)t6 << endl;
+         << "Variable t6 : " << (double)t6 << endl
+         << "Variable tPetit  : " << (double)tPetit << endl
+         << "Variable tPetit2 : " << (double)tPetit2 << endl
+         << "Variable tGrand  : " << (double)tGrand << endl;
 
     cout << endl;
 
