@@ -9,6 +9,8 @@
                fonctions de surcharge d'opérateurs demandées, ainsi que les constructeurs et les accesseurs.
 
  Remarque(s) : Information complémentaire :
+                    - Il n y a aucun contrôle des valeurs données au constructeur ou aux modificateurs
+
                     - Le constructeur prenant comme paramètre une variable de type "time_t" utilise
                       une fonction nomée "atoi()" qui permet de transformer le buffer de "char"
                       en nombre entier. Ce nombre entier est ensuite transformé en "unsigned int".
@@ -16,6 +18,9 @@
 
                     - "setw" de la librairie "iomanip" est utilisée pour afficher correctement
                        le bon nombre de caractères lors de l'affichage d'un temps.
+
+                    - Les opérateurs d'incrémentation et de décrémentation appelle l'opérateur += afin d'éviter
+                      une redondance du code.
 
  Compilateur : MinGW 6.3.0
  -----------------------------------------------------------------------------------
@@ -141,7 +146,7 @@ void Temps::setSeconde(uint seconde) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Opérateurs d'incrementation et décrémentation
+// Opérateurs d'incrémentation et décrémentation
 
 Temps& Temps::operator++() {
     *this += Temps(0,0,1);
@@ -167,7 +172,7 @@ Temps Temps::operator--(int) {
 
 /*------------------------------------------------------------------------------------------*/
 
-// Opérateurs d'affectation
+// Opérateurs d'affectations
 
 Temps& Temps::operator+=(const Temps& rhs) {
     heure   += rhs.heure;

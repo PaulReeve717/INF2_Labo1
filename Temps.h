@@ -17,6 +17,8 @@
                       dans une jour, le nombre de minutes dans une heur et le nombre de secondes dans
                       une minute. Ceci dans le but de faciliter un éventuel changement de données.
 
+
+
  Compilateur : MinGW 6.3.0
  -----------------------------------------------------------------------------------
 */

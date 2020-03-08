@@ -34,9 +34,6 @@ using namespace std;
 int main() {
     // -------------------------------------------------------------------
 
-    cout << "Tests constructeurs" << endl;
-    cout << "===================" << endl;
-
     time_t heureActuelle;
     time(&heureActuelle);
     Temps t1,
