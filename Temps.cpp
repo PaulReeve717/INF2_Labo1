@@ -19,8 +19,8 @@
                     - "setw" de la librairie "iomanip" est utilisée pour afficher correctement
                        le bon nombre de caractères lors de l'affichage d'un temps.
 
-                    - Les opérateurs d'incrémentation et de décrémentation appelle l'opérateur += afin d'éviter
-                      une redondance du code.
+                    - Les opérateurs d'incrémentation appelle l'opérateur += et celui de décrémentation
+                      le -= afin d'éviter une redondance du code.
 
  Compilateur : MinGW 6.3.0
  -----------------------------------------------------------------------------------
